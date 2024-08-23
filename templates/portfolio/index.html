@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
+    <link rel="stylesheet" href="{% static 'assets/css/project.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Project Showcase</h1>
+        <nav>
+            <a href="{% url 'booklist' %}">Projects</a>
+            <a href="{% url 'about' %}">Contact</a>
+            <a href="{% url 'profile_view' %}">Profiles</a>
+        </nav>
+    </header>
+
+    <main style="background-image: url('https://img.freepik.com/free-vector/green-technological-honeycomb-background_23-2148261845.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1711929600&semt=ais'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: calc(100vh - 80px); padding: 20px;">
+        <section id="projects" style="color:white;">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                {% for project in projects %}
+                    <div class="project-item">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                        {% endif %}
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        {% if project.link %}
+                            <a href="{{ project.link }}">View Project</a>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <p>No projects available.</p>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>Contact me at <a href="mailto:example@example.com">example@example.com</a></p>
+    </footer>
+
+    <script src="{% static 'js/project.js' %}"></script>
+</body>
+</html>
+
+

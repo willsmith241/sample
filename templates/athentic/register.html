@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="{% static 'assets/css/styels.css' %}">
+</head>
+<body>
+<div class="wrapper">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFc-RPuekbB0RJHz9agHA8P2oF4GTQKRuTQGuvfHEjbvbejaU4DMLBUSFvFOMijmmdmFI&usqp=CAU" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+            Inmakes
+        </div>
+        <form class="p-3 mt-3" method="post">
+            {% csrf_token %}
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="user" id="userName" placeholder="username">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd1" placeholder="password">
+            </div>
+             <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="cpassword" id="pwd2" placeholder="confirm password">
+            </div>
+            <button class="btn mt-3">Register</button>
+        </form>
+        <div class="text-center fs-6">
+<!--            <a href="#">Forget password?</a> or <a href="">My contact</a>-->
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #d3d3d3 !important;
+        }
+        .card-container {
+            margin: 20px 0;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add_project' %}">Add Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="my-4">Welcome, {{ user.username }}</h1>
+
+        <!-- Projects Section -->
+        <h2 class="my-4">Projects</h2>
+        <div class="row">
+            {% for project in projects %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ project.title }}</h5>
+                            <p class="card-text">{{ project.description }}</p>
+                            {% if project.link %}
+                                <a href="{{ project.link }}" class="btn btn-custom">Project Link</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No projects found.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Work Experience Section -->
+        <h2 class="my-4">Work Experience</h2>
+        <div class="row">
+            {% for work in work_experiences %}
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ work.job_title }} at {{ work.company }}</h5>
+                            <p class="card-text">{{ work.description }}</p>
+                            <p class="card-text"><small class="text-muted">From {{ work.start_date }} to {{ work.end_date }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No work experience found.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Education Section -->
+        <h2 class="my-4">Education</h2>
+        <div class="row">
+            {% for edu in educations %}
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ edu.degree }} from {{ edu.institution }}</h5>
+                            <p class="card-text">From {{ edu.start_date }} to {{ edu.end_date }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No education records found.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Certifications Section -->
+        <h2 class="my-4">Certifications</h2>
+        <div class="row">
+            {% for cert in certifications %}
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cert.name }}</h5>
+                            <p class="card-text">Issued by {{ cert.issued_by }} on {{ cert.issue_date }}</p>
+                            {% if cert.certificate_url %}
+                                <a href="{{ cert.certificate_url }}" class="btn btn-info">Certificate Link</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No certifications found.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

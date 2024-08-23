@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
+    <link rel="stylesheet" href="{% static 'assets/css/project.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Project Showcase</h1>
+        <nav>
+            <a href="{% url 'booklist' %}">Projects</a>
+            <a href="{% url 'about' %}">Contact</a>
+              <a href="{% url 'profile_view' %}">Profiles</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <!-- Project items will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>Contact me at <a href="mailto:example@example.com">example@example.com</a></p>
+    </footer>
+
+    <script src="{% static 'js/project.js' %}"></script>
+</body>
+</html>

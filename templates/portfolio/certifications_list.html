@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <center><h1>Certifications</h1></center>
+        <div class="row">
+            {% for cert in certifications %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cert.name }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Issued by {{ cert.issued_by }}</h6>
+                            <p class="card-text">Issue Date: {{ cert.issue_date }}</p>
+                            {% if cert.certificate_url %}
+                                <a href="{{ cert.certificate_url }}" class="btn btn-primary">View Certificate</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info" role="alert">
+                        No certifications found.
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'profile' %}" class="btn btn-primary mt-3">Back to Profile</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
+    <style>
+        /* Ensure full height layout */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        /* Fix the navbar at the top */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030; /* Ensures navbar is above other content */
+        }
+        /* Provide space for the fixed navbar */
+        .profile-container {
+            margin-top: 56px; /* Height of the fixed navbar */
+        }
+        /* Ensure footer is still at the bottom of the page */
+        .footer {
+            padding: 1rem;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+        <a class="navbar-brand" href="#">MyWebsite</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'hom' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <header class="header text-center">
+            <h1>John Doe</h1>
+            <p>Web Developer & Designer</p>
+        </header>
+        <section class="profile-picture text-center">
+            <img src="{% static 'profile-pic.jpg' %}" alt="John Doe">
+        </section>
+        <section class="bio">
+            <h2>About Me</h2>
+            <p>Hello! I’m John, a passionate web developer with a knack for creating vibrant and dynamic websites. I love coding and design, and I'm always looking for new challenges to tackle.</p>
+        </section>
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <ul>
+                <li>Email: john.doe@example.com</li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a></li>
+                <li>GitHub: <a href="https://github.com/johndoe" target="_blank">github.com/johndoe</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 John Doe. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/johndoe" target="_blank" class="social-icon">
+                    <img src="{% static 'linkedin-logo.svg' %}" alt="LinkedIn">
+                </a>
+                <a href="https://www.facebook.com/johndoe" target="_blank" class="social-icon">
+                    <img src="{% static 'facebook-logo.svg' %}" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/johndoe" target="_blank" class="social-icon">
+                    <img src="{% static 'twitter-logo.svg' %}" alt="Twitter">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

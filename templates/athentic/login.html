@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="{% static 'assets/css/styels.css' %}">
+</head>
+<body>
+<div class="wrapper">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuaSpv1V5zaKvsLNcdEifQWpTSJi8gwUVSN5rLsKCZyIe-bchsoWhM7wnPosRsJg5t2VY&usqp=CAU" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+            Inmakes
+        </div>
+        <form class="p-3 mt-3" method="post">
+            {% csrf_token %}
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="user" id="username" placeholder="username">
+            </div>
+
+             <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd3" placeholder="password">
+            </div>
+            <button class="btn mt-3">Login</button>
+        </form>
+        <div class="text-center fs-6">
+            <a href="#">Forget password?</a> or <a href="{% url 'register' %}">Signup</a>
+        </div>
+    </div>
+
+</body>
+</html>

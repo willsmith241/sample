@@ -1,0 +1,116 @@
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Full height and centered content */
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Background image for the entire page */
+body {
+    background-image: url('https://png.pngtree.com/background/20230408/original/pngtree-racing-background-abstract-stripes-with-red-graphite-gray-and-black-free-picture-image_2336608.jpg');
+    background-size: cover; /* Ensure the image covers the whole background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: #fff; /* White text color for contrast */
+    padding: 0;
+    margin: 0;
+}
+
+/* Header styling */
+header {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main section styling */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust based on header and footer height */
+    padding: 20px;
+    background:blue;
+    background-size: cover; /* Ensure the image covers the whole section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+/* Projects section styling */
+#projects {
+    background: rgba(0, 0, 0, 0.7); /* Dark background for the projects section */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.project-grid .project-item {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.project-grid .project-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.project-grid .project-item h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.project-grid .project-item p {
+    margin: 10px 0;
+}
+
+.project-grid .project-item a {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.project-grid .project-item a:hover {
+    background: #0056b3;
+}
+
+/* Footer styling */
+footer {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    text-align: center;
+}
+
+
